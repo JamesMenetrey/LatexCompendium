@@ -2,7 +2,7 @@
 
 Welcome to the LaTeX compendium !
 
-This repository is a collection of the most common uses of LaTeX. It contains references, templates, examples and practical works.
+This repository is a collection of the most common uses of LaTeX. It contains references, boilerplates, examples and practical works.
 
 ## Recommended Tools
 
