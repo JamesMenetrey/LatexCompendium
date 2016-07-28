@@ -6,6 +6,7 @@ This repository is a collection of the most common uses of LaTeX. It contains re
 
 ## Recommended Tools
 
+- LaTeX distributions: [MiKTeX](http://miktex.org/) (for Windows) / [MacTeX](https://tug.org/mactex/) (for Mac OS).
 - LaTeX editor: [TeXstudio](http://www.texstudio.org/).
 - BibTeX/BibLaTeX editor: [JabRef](https://www.jabref.org/).
 
