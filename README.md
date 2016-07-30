@@ -6,6 +6,8 @@ This repository is a collection of the most common uses of LaTeX. It contains re
 
 The main purpose of this repository is to provide user-friendly references of the LaTeX features. Feel free to contribute!
 
+Visit the [references](references) to check out how to use the most common features of LaTeX!
+
 ## Structure of the repository
 
 - The folder [boilerplates](boilerplates) contains templates recurrently used when creating new LaTeX documents.
