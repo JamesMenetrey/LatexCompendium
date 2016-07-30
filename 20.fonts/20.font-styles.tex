@@ -1,0 +1,115 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% Required for underlines (the parameter normalem prevents ulem to redefine emph)
+\usepackage[normalem]{ulem}
+
+\newcommand{\lorem}{Lorem ipsum dolor sit amet, consectetur adipiscing elit.}
+
+\begin{document}
+
+\section*{Normal}
+
+\begin{rm}
+\lorem
+\end{rm}
+
+\section*{Boldface}
+
+\textbf{\lorem}
+
+{\bfseries \lorem}
+
+\begin{bf}
+\lorem
+\end{bf}
+
+\section*{Italic}
+
+\textit{\lorem}
+
+{\itshape \lorem}
+
+\begin{it}
+\lorem
+\end{it}
+
+\section*{Slanted}
+
+\textsl{\lorem}
+
+{\slshape \lorem}
+
+\begin{sl}
+\lorem
+\end{sl}
+
+\section*{Typewriter}
+
+\texttt{\lorem}
+
+{\ttfamily \lorem}
+
+\begin{tt}
+\lorem
+\end{tt}
+
+\section*{Sans serif}
+
+\textsf{\lorem}
+
+{\sffamily \lorem}
+
+\begin{sf}
+\lorem
+\end{sf}
+
+\section*{Small caps}
+
+\textsc{\lorem}
+
+{\scshape \lorem}
+
+\begin{sc}
+\lorem
+\end{sc}
+
+\section*{Exponent}
+
+Hello\textsuperscript{world!}
+
+\section*{Box}
+
+\fbox{\lorem}
+
+\section*{Underline}
+
+\uline{\lorem}
+
+\section*{Double underline}
+
+\uuline{\lorem}
+
+\section*{Underwave}
+
+\uwave{\lorem}
+
+\section*{Strikethrough}
+
+\sout{\lorem}
+
+\section*{Emphasize}
+
+The markup \textit{\textbackslash emph} enables the editor to highlight words and behaves differently according the current style of the text. The next examples highlights the word \emph{Ipsum}:
+
+\begin{itemize}
+\item Lorem \emph{ipsum} dolor sit amet, consectetur adipiscing elit.
+\item \textbf{Lorem \emph{ipsum} dolor sit amet, consectetur adipiscing elit.}
+\item \textit{Lorem \emph{ipsum} dolor sit amet, consectetur adipiscing elit.}
+\end{itemize}
+
+
+	
+\end{document}

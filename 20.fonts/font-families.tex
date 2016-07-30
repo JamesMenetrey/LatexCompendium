@@ -1,0 +1,55 @@
+\documentclass[twocolumn]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+
+\newcommand{\sample}{This is a normal text. \\ \textsf{This is a text sans serif.} \\ \texttt{This is a typewriter text.} \\ $\int_{4}^{8}xdx + \sum_{k=0}^{10} k^{2}+0.123456789 $}
+
+\begin{document}
+
+\section*{Common font families list}
+
+More font families and information can be found on this page: \url{https://en.wikibooks.org/wiki/LaTeX/Fonts#Font_families}
+
+\subsection*{Computer Modern Roman (default)}
+
+\fontfamily{cmr}\selectfont
+\sample
+
+\subsection*{Latin Modern Roman}
+
+\fontfamily{lmr}\selectfont
+\sample
+
+\subsection*{Latin Modern Dunhill}
+
+\fontfamily{lmdh}\selectfont
+\sample
+
+\subsection*{Bookman}
+
+\fontfamily{pbk}\selectfont
+\sample
+
+\subsection*{Charter}
+
+\fontfamily{bch}\selectfont
+\sample
+
+\subsection*{New Century Schoolbook}
+
+\fontfamily{pnc}\selectfont
+\sample
+
+\subsection*{Palatino}
+
+\fontfamily{ppl}\selectfont
+\sample
+
+\subsection*{Times}
+
+\fontfamily{ptm}\selectfont
+\sample
+
+\end{document}
