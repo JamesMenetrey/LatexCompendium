@@ -6,9 +6,9 @@ This repository is a collection of the most common uses of LaTeX. It contains re
 
 ## Structure of the repository
 
-- The folder [boilerplates](tree/master/boilerplates) contains templates recurrently used when creating new LaTeX documents.
-- The folder [practical-works](tree/master/practical-works) contains real documents demonstrating the usage of LaTeX.
-- The folder [references](tree/master/references) is the core of this repository and contains documentations about most used features of LaTeX.
+- The folder [boilerplates](boilerplates) contains templates recurrently used when creating new LaTeX documents.
+- The folder [practical-works](practical-works) contains real documents demonstrating the usage of LaTeX.
+- The folder [references](references) is the core of this repository and contains documentations about most used features of LaTeX.
 
 ## Recommended Tools
 
