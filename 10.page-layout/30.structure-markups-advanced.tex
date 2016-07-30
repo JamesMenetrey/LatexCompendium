@@ -1,0 +1,32 @@
+\documentclass{book}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lipsum}
+
+\begin{document}
+
+% Preamble, page numbers are in Roman numerals
+\frontmatter
+\chapter{Introduction}
+\lipsum
+	
+% Main content of the book
+\mainmatter
+\part{A part}
+\chapter{The content}
+\lipsum
+
+% Appendices of the book; the numbering of the chapters is alphabetical
+\appendix
+\chapter{First Appendix}
+\lipsum
+\chapter{Second Appendix}
+\lipsum
+
+% End of the book, stop the numbering of the chapters
+\backmatter
+\chapter{The End}
+\lipsum
+
+\end{document}
