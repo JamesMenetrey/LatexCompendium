@@ -1,0 +1,62 @@
+\documentclass[12pt]{chletter}  % defaults: 11pt,a4paper,oneside
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lipsum}
+
+% If you don't like the body text indentation, uncomment the two previous lines
+%\setlength{\oddsidemargin}{0pt}
+%\setlength{\hoffset}{36pt}
+
+% Set your name (used in the address and in the signature)
+\author{Jämes Ménétrey}
+
+% Set an additional line that appears in the sender address zone
+\location{Office name}
+
+% Set your address
+\address{My address \\ My City \\ Switzerland}
+
+% (optional) Set your phone number that appears in the sender address zone
+\telephone{+41 (00) 000 00 00}
+
+% Set the location and the date
+\date{Location, \today}
+
+% (optional) Set an heading on top of the recipient's address
+\return{Shipping address}
+
+% (optional) Enable to override the name in the signature
+\signature{Jämes Ménétrey \\ \footnotesize Software Engineer}
+
+% (optional) Create an additional page containing the recipient address
+\makelabels
+
+\begin{document}
+	
+% Set the recipient address
+\begin{letter}{Recipient \\ Street \\ City \\ Country}
+	
+% Set the object (boldface is used by convention in Switzerland)
+\object{\textbf{Lorem Ipsum}}
+
+% Set the salutation
+\opening{Dear John,}
+
+% Body text
+\lipsum[1]
+
+% Set the closing text
+\closing{Regards,}
+
+% (optional) Set the attachments
+\encl{enclosures}{\ldots}
+
+% (optional) Set the other recipients
+\cc{other recipients}
+
+% (optional) Set the postscript
+\ps{P. S.}{Don't forget to burn this letter!}
+
+\end{letter}
+\end{document}
