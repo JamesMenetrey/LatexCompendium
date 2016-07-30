@@ -1,5 +1,9 @@
 # Boilerplate for letters
 
+## Standard letters
+
+Standard letters use the documentclass `letter`. More information about itr can be found on [Wikibooks](https://en.wikibooks.org/wiki/LaTeX/Letters).
+
 ## Swiss letters
 
 Switzerland uses a dedicated norm for the letters.

@@ -1,0 +1,46 @@
+\documentclass{letter}  % defaults:10pt,letter,oneside
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lipsum}
+
+% Set your address
+\address{My address \\ My City \\ My Country}
+
+% (optional) Set your phone number that appears in the sender address zone
+\telephone{+41 (00) 000 00 00}
+
+% Set the location and the date
+\date{Location, \today}
+
+% (optional) Enable to override the name in the signature
+\signature{Jämes Ménétrey \\ \footnotesize Software Engineer}
+
+% (optional) Create an additional page containing the recipient address
+\makelabels
+
+\begin{document}
+	
+% Set the recipient address
+\begin{letter}{Recipient \\ Street \\ City \\ Country}
+
+% Set the salutation
+\opening{Dear John,}
+
+% Body text
+\lipsum[1]
+
+% Set the closing text
+\closing{Regards,}
+
+% (optional) Set the attachments
+\encl{enclosures}{\ldots}
+
+% (optional) Set the other recipients
+\cc{other recipients}
+
+% (optional) Set the postscript
+\ps{P. S.}{Don't forget to burn this letter!}
+
+\end{letter}
+\end{document}
