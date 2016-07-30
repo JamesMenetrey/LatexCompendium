@@ -4,6 +4,8 @@ Welcome to the LaTeX compendium !
 
 This repository is a collection of the most common uses of LaTeX. It contains references, boilerplates and examples.
 
+The main purpose of this repository is to provide user-friendly references of the LaTeX features. Feel free to contribute!
+
 ## Structure of the repository
 
 - The folder [boilerplates](boilerplates) contains templates recurrently used when creating new LaTeX documents.
