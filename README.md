@@ -18,7 +18,7 @@ This repository is a collection of the most common uses of LaTeX. It contains re
 
 ## Sources
 
-- The structure of this repository is based on the book "_Rédiger des documents de qualité avec LaTeX_", edited by [OpenClassrooms](https://openclassrooms.com/courses/redigez-des-documents-de-qualite-avec-latex).
+- The content of this repository is inspired by the book "_Rédiger des documents de qualité avec LaTeX_", edited by [OpenClassrooms](https://openclassrooms.com/courses/redigez-des-documents-de-qualite-avec-latex).
 
 ## Author
 
