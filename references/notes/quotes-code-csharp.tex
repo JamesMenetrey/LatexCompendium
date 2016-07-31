@@ -1,0 +1,117 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+
+% Set the font of the code listing
+\usepackage{inconsolata} % other fonts can be used such as \usepackage{courier}
+
+% Define the colors used in the code listing
+\usepackage{color}
+\definecolor{bluekeywords}{rgb}{0,0,1}
+\definecolor{greencomments}{rgb}{0,0.5,0}
+\definecolor{redstrings}{rgb}{0.64,0.08,0.08}
+\definecolor{xmlcomments}{rgb}{0.5,0.5,0.5}
+\definecolor{types}{rgb}{0.17,0.57,0.68}
+
+% Set up the code listing
+\usepackage{listings}
+\lstset{
+	% Programming language used
+	language=[Sharp]C,
+	% Caption at the bottom
+	captionpos=b,
+	% Display the line numbers
+	numbers=left,
+	% how far the line-numbers are from the code
+	numbersep=10pt,
+	% Style for the line numbers
+	numberstyle=\tiny,
+	% Use line as separator
+	frame=lines,
+	% Display the spaces in the listing
+	showspaces=false,
+	% Display the tabs in the listing
+	showtabs=false,
+	% Add break lines if needed (for lines too long)
+	breaklines=true,
+	% Display the spaces in the code strings
+	showstringspaces=false,
+	% sets if automatic breaks should only happen at whitespace
+	breakatwhitespace=true,
+	% if you want to add LaTeX within your code
+	escapeinside={(*@}{@*)},
+	% Set the color of the comments
+	commentstyle=\color{greencomments},
+	% Enchance the list of language keywords
+	morekeywords={partial, var, value, get, set},
+	% Set the color of the keywords
+	keywordstyle=\color{bluekeywords},
+	% Set the color of the strings
+	stringstyle=\color{redstrings},
+	% Set the style of the code. (try \ttfamily\small as well)
+	basicstyle=\footnotesize\ttfamily,
+	% sets default tabsize to 2 spaces
+	tabsize=5,
+}
+
+\begin{document}
+	
+	
+\begin{lstlisting}[label=label-here,caption=Assembler implementation - MemorySharp]
+/*
+* MemorySharp Library
+* http://www.binarysharp.com/
+*
+* Copyright (C) 2012-2014 James Menetrey (a.k.a. ZenLulz).
+* This library is released under the MIT License.
+* See the file LICENSE for more information.
+*/
+
+using Binarysharp.Assemblers.Fasm;
+using System;
+
+namespace Binarysharp.MemoryManagement.Assembly.Assembler
+{
+	/// <summary>
+	/// Implement Fasm.NET compiler for 32-bit development.
+	/// More info: https://github.com/ZenLulz/Fasm.NET
+	/// </summary>
+	public class Fasm32Assembler : IAssembler
+	{
+		/// <summary>
+		/// Assemble the specified assembly code.
+		/// </summary>
+		/// <param name="asm">The assembly code.</param>
+		/// <returns>An array of bytes containing the assembly code.</returns>
+		public byte[] Assemble(string asm)
+		{
+			// Assemble and return the code
+			return Assemble(asm, IntPtr.Zero);
+		}
+		
+		/// <summary>
+		/// Assemble the specified assembly code at a base address.
+		/// </summary>
+		/// <param name="asm">The assembly code.</param>
+		/// <param name="baseAddress">The address where the code is rebased.</param>
+		/// <returns>An array of bytes containing the assembly code.</returns>
+		public byte[] Assemble(string asm, IntPtr baseAddress)
+		{
+			// Rebase the code
+			asm = String.Format("use32\norg 0x{0:X8}\n", baseAddress.ToInt64()) + asm;
+			// Assemble and return the code
+			return FasmNet.Assemble(asm);
+		}
+	}
+}
+\end{lstlisting}
+
+\section*{Sources}
+
+The style for this listing has been inspired by this StackExchange post: \url{http://tex.stackexchange.com/a/124969/108649}. \\
+
+More information about this package can be found on \url{https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings}.
+	
+\end{document}

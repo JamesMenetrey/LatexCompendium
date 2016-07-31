@@ -1,0 +1,24 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lipsum}
+
+\usepackage{nameref}
+
+\begin{document}
+
+\section{Hello world}
+\label{lipsum}
+\lipsum[1]
+
+\section{Another section}
+
+Please, read the section \ref{lipsum}\ \nameref{lipsum} on page \pageref{lipsum}.
+
+\section{Go further}
+
+You can found advanced uses of internal references in the file \emph{internal-references-advanced} in the \LaTeX Compendium.
+
+
+\end{document}

@@ -1,0 +1,26 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lipsum}
+
+% Set the paddings of the box
+\setlength{\fboxsep}{5mm}
+
+% Define the thickness of the border
+\setlength{\fboxrule}{2mm}
+
+\begin{document}
+	
+The example below demonstrates how to insert a box in a text. \\
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel ultricies arcu. Aliquam dignissim tellus nibh, eu tempor mi semper quis. Donec gravida aliquet tristique. Etiam ut orci vitae nisl ullamcorper dictum. Maecenas efficitur sodales blandit.Etiam in placerat turpis. Ut ac consectetur purus.
+\fbox{
+	% The parameter "c" defines the line of the text must be centered compared to the box.
+	\begin{minipage}[c]{5cm} 
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+	\end{minipage}
+}
+Phasellus vestibulum nisi eu ultrices condimentum. Maecenas at massa pharetra, congue augue nec, aliquam urna. Etiam tempus convallis eleifend. Sed congue diam ac porttitor elementum. Aenean fringilla mauris sit amet nulla hendrerit maximus ac et erat. Nullam ut sagittis nisl. Nunc pharetra enim metus, in pellentesque diam vulputate id.
+
+\end{document}

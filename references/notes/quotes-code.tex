@@ -1,0 +1,84 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% Required for the environment lstlisting
+\usepackage{listings}
+% Required for the environment verbatimtab
+\usepackage{moreverb}
+
+
+% Configuration of the listing package
+\lstset{
+	language=[Sharp]C,
+	basicstyle=\footnotesize,
+	numbers=left,
+	numberstyle=\normalsize,
+	numbersep=7pt
+}
+
+\begin{document}
+
+Four main methods exist to quote code.
+
+\section*{The markup \emph{\textbackslash verb}}
+
+The character that follows the markup determine the end of the quote. The selection of this charac ter is useful because depending on the code quoted, we can assign one never use in the programming language. \\
+
+\verb|Trace.WriteLine("Hello world!");|
+
+
+\section*{The environment \emph{verbatim}}
+
+The environment \emph{verbatim} is useful to quote large code. One issue when using it: it replaces the tabs by spaces.
+
+\begin{verbatim}
+int main(string[] args)
+{
+	if(args.Any())
+	{
+		Trace.WriteLine("Hello {0}!", args[0]);
+	}
+	
+	return 0;
+}
+\end{verbatim}
+
+
+\section*{The environment \emph{verbatimtab}}
+
+In order to properly renders the code indent, the environment \emph{verbatimtab} can be used (requires the package \emph{moreverb}). The number in parameter specify the number of spaces used to replace a tab.
+
+\begin{verbatimtab}[5]
+int main(string[] args)
+{
+	if(args.Any())
+	{
+		Trace.WriteLine("Hello {0}!", args[0]);
+	}
+	
+	return 0;
+}
+\end{verbatimtab}
+
+
+\section*{The environment \emph{lstlisting}}
+
+The package \emph{listings} provides a very complete environment called \emph{lstlisting} enabling the editor to personalize the rendering of the code. The markup \emph{\textbackslash lstset} must be first called in the preamble in order to indicatre several parameters like the programming language used.
+
+\begin{lstlisting}
+int main(string[] args)
+{
+	if(args.Any())
+	{
+		Trace.WriteLine("Hello {0}!", args[0]);
+	}
+	
+	return 0;
+}
+\end{lstlisting}
+
+For a complete example of quote C\texttt{\#} code, check out the file \emph{quotes-code-csharp} in the \LaTeX Compendium.
+	
+\end{document}

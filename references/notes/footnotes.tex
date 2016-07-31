@@ -1,0 +1,23 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\begin{document}
+
+\section*{The markup \emph{\textbackslash footnote}}
+
+\begin{quotation}
+As far as the laws of mathematics refer to reality, they are not certain; and as far as they are certain, they do not refer to reality.\footnote{Albert Einstein, addressed to Prussian Academy of Science, January 1921.}
+\end{quotation}
+
+\section*{The markup \emph{\textbackslash footnotemark}}
+
+\begin{quotation}
+When a man sits with a pretty girl for an hour, it seems like a minute. But let him sit on a hot stove for a minute — and it's longer than any hour. That's relativity.\footnotemark[10]
+\end{quotation}
+
+% Require two compilations (the first one for listing marks and the second for the association between the footnotes and the marks)
+\footnotetext[10]{Albert Einstein, The Yale Book of Quotations}
+
+\end{document}

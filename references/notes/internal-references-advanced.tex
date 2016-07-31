@@ -1,0 +1,57 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{lipsum}
+
+% Be careful to respect the order of the packages.
+%
+% This package provides a better cross reference mechanism (\vref). Depending on how close/far is the referenced content, the reference text is adapted. Look at the document to see a demo.
+% The language can be specified by parameter.
+\usepackage{varioref}
+% This package enhances the references and convert them into hyperlink references.
+\usepackage{hyperref}
+% This package provides a context to the references. When a reference is called, enchances it and specify the type (section, chapter, table, ...).
+% The language can be specified by parameter.
+\usepackage{cleveref}
+
+% The package cleveref enables the editor to override the environment names.
+% An example is provided below overriding the table environment name. 
+% each of the following has two versions
+%   \crefname{environmentname}{singular}{plural}, to be used mid-sentence
+%   \Crefname{environmentname}{singular}{plural}, to be used at the beginning of a sentence
+\crefname{table}{fat table}{fat tables}
+
+\begin{document}
+
+\section{A section}
+\label{lipsum}
+\lipsum[1]
+
+\section{Another section}
+
+Please, read the \vref{lipsum}. Please also check out the \vref{table}.
+
+\newpage
+
+\section{Yet Another section}
+
+Please, read the \vref{lipsum}. Please also check out the \vref{table}.
+
+\begin{table}[b]
+\centering
+\begin{tabular}{|c|}
+\hline
+$\infty$ \\
+\hline
+\end{tabular}
+\caption{A table}
+\label{table}
+\end{table}
+
+\section{Sources}
+
+You can find more information about those packages on \url{https://en.wikibooks.org/wiki/LaTeX/Labels_and_Cross-referencing} and \url{http://tex.stackexchange.com/questions/83037/difference-between-ref-varioref-and-cleveref-decision-for-a-thesis}.
+
+\end{document}
