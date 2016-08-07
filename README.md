@@ -24,6 +24,7 @@ Visit the [references](references) to check out how to use the most common featu
 
 - The content of this repository is inspired by the book "_Rédiger des documents de qualité avec LaTeX_", edited by [OpenClassrooms](https://openclassrooms.com/courses/redigez-des-documents-de-qualite-avec-latex).
 - A lot of information found in the LaTeX Compendium can also be found on [Wikibooks - LaTeX](https://en.wikibooks.org/wiki/LaTeX).
+- [ShareLaTeX](https://www.sharelatex.com/learn/Main_Page) provides an well described documentation for both beginners and advanced LaTeX users.
 
 ## Author
 
