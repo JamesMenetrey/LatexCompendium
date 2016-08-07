@@ -2,7 +2,7 @@
 
 Welcome to the LaTeX Compendium !
 
-This repository is a collection of the most common uses of LaTeX. It contains references, boilerplates and examples.
+This repository is a collection of the most common uses of LaTeX. It contains references and tons of examples.
 
 The main purpose of this repository is to provide user-friendly references of the features of LaTeX. Feel free to contribute!
 
@@ -10,6 +10,7 @@ Visit the [references](references) to check out how to use the most common featu
 
 ## Structure of the repository
 
+- The folder [best-practices](best-practices) contains the recommended coding style guides and proper uses of LaTeX language.
 - The folder [boilerplates](boilerplates) contains templates recurrently used when creating new LaTeX documents.
 - The folder [practical-works](practical-works) contains real documents demonstrating the usage of LaTeX.
 - The folder [references](references) is the core of this repository and contains documentations about most used features of LaTeX.
