@@ -9,3 +9,4 @@ In the case you are not familiar with LaTeX, we recommend to following the refer
 - [Page layout](page-layout)
 - [Fonts](fonts)
 - [Notes](notes)
+- [Figures](figures)

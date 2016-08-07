@@ -1,0 +1,38 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% Required to include pictures
+\usepackage{graphicx}
+
+% Define the path where the pictures are located (this is optional)
+\graphicspath{{resources/}}
+
+\begin{document}
+
+\section*{Basic import a picture}
+
+\includegraphics{helvetios}
+
+\section*{Resize by specifying the height and the width}
+
+\includegraphics[width=100px]{helvetios}
+\includegraphics[height=100px]{helvetios}
+\includegraphics[height=100px,width=50px]{helvetios}
+
+\section*{Rotation}
+
+\includegraphics[angle=45,width=100px]{helvetios}
+\includegraphics[angle=90,width=100px]{helvetios}
+\includegraphics[angle=135,width=100px]{helvetios}
+\includegraphics[angle=180,width=100px]{helvetios}
+
+\section*{Scaling}
+
+\includegraphics[scale=0.3]{helvetios}
+\includegraphics[scale=0.5]{helvetios}
+\includegraphics[scale=0.7]{helvetios}
+\includegraphics[scale=0.8]{helvetios}
+
+\end{document}

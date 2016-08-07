@@ -1,0 +1,47 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% Required to include pictures
+\usepackage{graphicx}
+
+% Define the path where the pictures are located (this is optional)
+\graphicspath{{resources/}}
+
+% Required to have unnumbered figures
+\usepackage{caption}
+
+\begin{document}
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.5]{helvetios}
+\caption{Helvetios album}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.5,angle=90]{helvetios}
+\caption{Helvetios album $90^{\circ}$}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.5,angle=180]{helvetios}
+	\caption{Helvetios album $180^{\circ}$}
+\end{figure}
+
+% Here \caption* is used so it becomes an unnumbered figure
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.5,angle=270]{helvetios}
+	\caption*{Helvetios album $270^{\circ}$}
+\end{figure}
+
+\clearpage
+
+% Don't forget to compile twice (once to generate the list and another one to render the list)
+\listoffigures
+
+\end{document}

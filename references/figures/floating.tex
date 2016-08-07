@@ -1,0 +1,106 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% Required to include pictures
+\usepackage{graphicx}
+
+% Define the path where the pictures are located (this is optional)
+\graphicspath{{resources/}}
+
+% Required to use the parameter H in the environment figure
+\usepackage{float}
+
+\begin{document}
+	
+% The parameters of the environment figure, used to position a picture in a floating space, is described in the following sections.
+	
+\section*{Environment figure without parameter}
+
+The picture is floating where \LaTeX{} best estimates the location of the picture. In this case, the position is equal to the parameter \emph{t} (for top location).
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.5]{helvetios}
+\caption{Helvetios album}
+\end{figure}
+
+% This keyword is used like \newpage, except it forces LaTeX to render all the pending floats. Check out \cleardoublepage for books as well.
+\clearpage
+
+\section*{Environment figure with the parameter \emph{b}}
+
+The parameter \emph{b} forces \LaTeX{} to position the picture at the bottom of the page.
+
+\begin{figure}[b]
+	\centering
+	\includegraphics[scale=0.5]{helvetios}
+	\caption{Helvetios album}
+\end{figure}
+
+\clearpage
+
+\section*{Environment figure with the parameter \emph{h}}
+
+The parameter \emph{h} forces \LaTeX{} to position the picture approximately at the same point it occurs in the source text.
+
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.5]{helvetios}
+	\caption{Helvetios album}
+\end{figure}
+
+\clearpage
+
+\section*{Environment figure with the parameter \emph{H}}
+
+Same as the parameter \emph{H}, except we would like to position the picture at the same point it occurs in the source text. Requires the package \emph{float}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.5]{helvetios}
+	\caption{Helvetios album}
+\end{figure}
+
+The parameters \emph{h} and \emph{H} are interesting tools, nevertheless they must be used with moderation. Leaving \LaTeX{} manages the location of the floats is generally the best approach to render clean documents.
+
+\clearpage
+
+\section*{Environment figure with the parameter \emph{p}}
+
+The parameter \emph{p} forces \LaTeX{} to position the picture to be inserted on a dedicated page for floats only.
+
+
+\begin{figure}[p]
+	\centering
+	\includegraphics[scale=0.5]{helvetios}
+	\caption{Helvetios album}
+\end{figure}
+
+\clearpage
+
+\section*{Environment figure with the modifier \emph{!}}
+
+The modifier \emph{!} can decorate any parameter previously described. overrides the internal parameter \LaTeX{} uses for determining \textit{good} float position.
+
+For example, when the picture is displayed with the parameter \emph{b} with its full size, \LaTeX{} suggests to prints it on a separate page:
+
+\begin{figure}[b]
+	\centering
+	\includegraphics{helvetios}
+	\caption{Helvetios album}
+\end{figure}
+
+\clearpage
+
+Using the modifier \emph{!} with the parameter \emph{b}, \LaTeX{} properly locates the picture at the bottom of the page.
+
+\begin{figure}[!b]
+	\centering
+	\includegraphics{helvetios}
+	\caption{Helvetios album}
+\end{figure}
+
+\end{document}

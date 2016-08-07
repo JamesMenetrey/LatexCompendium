@@ -1,0 +1,41 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lipsum}
+
+% Required to include pictures
+\usepackage{graphicx}
+
+% Define the path where the pictures are located (this is optional)
+\graphicspath{{resources/}}
+
+% Required to use the environment wrapfigure
+\usepackage{wrapfig}
+
+\begin{document}
+	
+% The environment wrapfigure is used to wrap the text around a figure. The prototype of the environment is: 
+%	\begin{wrapfigure}[number of lines]{location}{width of the picture}
+%
+% The number of lines is optional.
+% The placement is defined as:
+%	l	align the picture to the left
+%	r	align the picture to the right
+%	o	align the picture outside, meaning to the right on odd pages and to the left on even pages
+%	i	align the picture inside, meaning to the left on odd pages and to the right on even pages
+\begin{wrapfigure}{r}{0.25\textwidth}
+\includegraphics[width=0.25\textwidth]{helvetios}
+\caption{Helvetios}
+\vspace{-5pt} % Little trick enabling to fine-tune the position of the text
+\end{wrapfigure}
+
+\lipsum[0-2]
+	
+\begin{wrapfigure}{l}{0.25\textwidth}
+	\includegraphics[width=0.25\textwidth]{helvetios}
+\end{wrapfigure}
+
+\lipsum[0-2]
+
+\end{document}
