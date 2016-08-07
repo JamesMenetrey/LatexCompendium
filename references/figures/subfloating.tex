@@ -1,0 +1,37 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% Required to include pictures
+\usepackage{graphicx}
+
+% Define the path where the pictures are located (this is optional)
+\graphicspath{{resources/}}
+
+% Required to display subfigures
+\usepackage{subcaption}
+
+\begin{document}
+
+\begin{figure}
+	\centering
+	
+	\begin{subfigure}[b]{0.3\textwidth}
+		\includegraphics[scale=0.5]{helvetios}
+		\caption{Helvetios}
+		\label{fig:helvetios}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.3\textwidth}
+		\includegraphics[scale=0.5,angle=90]{helvetios}
+		\caption{Helvetios $90^{\circ}$}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.3\textwidth}
+		\includegraphics[scale=0.5,angle=180]{helvetios}
+		\caption{Helvetios $180^{\circ}$}
+	\end{subfigure}
+	
+	\caption{The collection of covers for Helvetios album (the figure \subref{fig:helvetios} is the original cover).}
+\end{figure}
+
+\end{document}
