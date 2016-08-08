@@ -1,0 +1,33 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% Required to use the commands >{} and <{}.
+\usepackage{array}
+
+\begin{document}
+
+\begin{table}
+	\centering
+	% The command >{commands} executes the commands before each column creation and <{commands} executes the commands after each column end.
+	% The following example demonstrates how to use an environment for the first column:
+	\begin{tabular}{| >{\begin{bf}} r <{\end{bf}} l |}
+		\hline
+		1 & Spirit \\
+		\hline
+		2 & Slania \\
+		\hline
+		3 & Evocation I \\
+		\hline
+		4 & Everything Remains \\
+		\hline
+		5 & Helvetios \\
+		\hline
+		6 & Origins \\
+		\hline
+	\end{tabular}
+	\caption{Table using special command on the 1\textsuperscript{st} column}
+\end{table}
+
+\end{document}

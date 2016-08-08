@@ -1,0 +1,29 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{multirow}
+
+\begin{document}
+	
+	\begin{table}
+		\centering
+		\begin{tabular}{| c | c | c |}
+			\hline
+			% The command \multirow{number of rows}{width}{text} merges rows. The parameter width is optional and can be replaced by an asterisk (*).
+			\multirow{2}*{1} & 2 & 3 \\
+			% The command \cline{i-j} draws a horizontal border between the cell i and cell j (counted from left to right, starting from 1).
+			\cline{2-3}
+			% When two rows are merged, the subsequent rows must reserve an empty cell for the merged cell.
+			& \multirow{2}*{5} & 6 \\
+			\cline{1-1} \cline{3-3}
+			4 & & \multirow{2}*{9} \\
+			\cline{1-2}
+			7 & 8 & \\
+			\hline
+		\end{tabular}
+		\caption{Table with merged rows}
+	\end{table}
+	
+\end{document}

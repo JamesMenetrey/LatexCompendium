@@ -1,0 +1,73 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% Required to use the commands >{}.
+\usepackage{array}
+
+% Required to use colors and alternate colors (all the features of the package "color" are available when loading the package "xcolor").
+\usepackage[table]{xcolor}
+\definecolor{lightgray}{gray}{0.9}
+\definecolor{normalgray}{gray}{0.8}
+\definecolor{darkgray}{gray}{0.5}
+
+% Required to apply colors to cell/row/column.
+\usepackage{colortbl}
+
+% Define the color of the borders of the table
+\arrayrulecolor{darkgray}
+
+% Set the thickness of the borders
+\setlength{\arrayrulewidth}{1pt}
+
+% Set the space between the content of the cell and the left/right border.
+\setlength{\tabcolsep}{10pt}
+
+% Set the scale of the height of the rows (set to 1.5 relative to its default height)
+\renewcommand{\arraystretch}{1.5}
+
+\begin{document}
+
+\begin{table}
+	\centering
+	% The command >{} executes has been discovered in the reference apply-commands-on-columns.tex.
+	% The command \columncolor{color} colors a whole column at once.
+	\begin{tabular}{| >{\columncolor{lightgray}} c | c | c | c |}
+		\hline
+		% The command \rowcolor{color} colors a whole row at once.
+		\rowcolor{lightgray}
+		$\times$ & 1 & 2 & 3 \\
+		\hline
+		1 & 1 & 2 & 3 \\
+		\hline
+		2 & 2 & 4 & 6 \\
+		\hline
+		% The command \cellcolor{color} colors a particular cell.
+		3 & 3 & 6 & \cellcolor{lightgray} 9 \\
+		\hline
+	\end{tabular}
+	\caption{Table with some colors}
+\end{table}
+
+\begin{table}
+	% The command \rowcolor[color model]{color}[left overhang][right overhang] is used to display alternate colors.
+	\rowcolors{2}{lightgray}{normalgray}
+	\centering
+	\begin{tabular}{| l l |}
+		\hline
+		\textbf{Country} & \textbf{Capital} \\
+		\hline
+		France & Paris \\
+		\hline
+		Germany & Berlin \\
+		\hline
+		Switzerland & Bern \\
+		\hline
+		United Kingdom & London \\
+		\hline
+	\end{tabular}
+	\caption{Table with alternate colors}
+\end{table}
+
+\end{document}

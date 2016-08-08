@@ -1,0 +1,27 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% Requires to use custom separators
+\usepackage{array}
+
+\begin{document}
+
+\begin{table}
+	\centering
+	% Custom separators replace vertical borders between cells usually used. They can be rendered either using !{separator} or @{separator}.
+	% The difference is !{} has a the advantage compared to @{} to insert a space before and after.
+	\begin{tabular}{| l | r @{,} l !{\$} |}
+		\hline
+		MacBook & 1299 & 00 \\
+		\hline
+		MacBook Air 11-inch & 899 & 99 \\
+		\hline
+		MacBook Air 13-inch & 999 & 99 \\
+		\hline
+	\end{tabular}
+	\caption{Table using custom separators}
+\end{table}
+
+\end{document}

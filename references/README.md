@@ -10,3 +10,4 @@ In the case you are not familiar with LaTeX, we recommend to following the refer
 - [Fonts](fonts)
 - [Notes](notes)
 - [Figures](figures)
+- [Tables](tables)

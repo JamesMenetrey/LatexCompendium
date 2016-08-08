@@ -1,0 +1,51 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% Required to use "m" and "b" options in the environment tabular
+\usepackage{array}
+
+\begin{document}
+
+% The environment table renders the table as a floating element
+\begin{table}
+	\centering
+	% The environment tabular defines the table. The parameters defines the number of columns.
+	% The options in the parameter define the alignment of the content of the cells. They are:
+	%	l			left-justified column
+	%	c			centered column
+	%	r			right-justified column
+	%	p{width}	paragraph column with text vertically aligned at the top
+	%	m{width}	paragraph column with text vertically aligned in the middle (requires array package)
+	%	b{width}	paragraph column with text vertically aligned at the bottom (requires array package)
+	%	|			vertical line
+	%	||			double vertical line
+	%
+	% In the following example, three columns are separated by vertical borders.
+	\begin{tabular}{| l | c | r |}
+		% The command hline draws a horizontal border
+		\hline
+		000 & 000 & 000 \\
+		\hline
+		1 & 2 & 3 \\
+		\hline
+		4 & 5 & 6 \\
+		\hline
+		7 & 8 & 9 \\
+		\hline
+	\end{tabular}
+	\caption{Basic table with borders}
+\end{table}
+
+\begin{table}
+	\centering
+	\begin{tabular}{| m{1cm} | p{2cm} | m{3cm} | m{4cm} |}
+		\hline
+		1cm 1cm 1cm 1cm 1cm & 2cm & 3cm & 4cm \\
+		\hline
+	\end{tabular}
+	\caption{Basic table with fixed size of columns}
+\end{table}
+
+\end{document}

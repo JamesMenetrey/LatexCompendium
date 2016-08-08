@@ -1,0 +1,28 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\begin{document}
+	
+	\begin{table}
+		\centering
+		\begin{tabular}{| c | c | c |}
+			\hline
+			% The command \multicolumn{number of columns to merge}{position}{content} merges columns.
+			% The parameter position defines the alignment of the cell with eventual border, such as the parameter of the enviornment tabular.
+			\multicolumn{3}{| c |}{1} \\
+			\hline
+			\multicolumn{2}{| c |}{2} & 3 \\
+			\hline
+			4 & 5 & 6 \\
+			\hline
+			7 & \multicolumn{2}{| c |}{8} \\
+			\hline
+			\multicolumn{3}{| c |}{9} \\
+			\hline
+		\end{tabular}
+		\caption{Table with merged columns}
+	\end{table}
+	
+\end{document}

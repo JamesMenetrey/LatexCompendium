@@ -1,0 +1,29 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\begin{document}
+
+% The environment table renders the table as a floating element.
+% It can handle the same parameters than the environment figure (t/b/h/H/!)
+\begin{table}
+	\centering
+	% The environment tabular defines the table. The parameters defines the number of columns.
+	% Each column is described by a letter, which corresponds to an option of alignment (c stands for center).
+	% The other options are widely described in the reference basic-with-borders.tex.
+	%
+	% In the following example, three centered columns are used:
+	\begin{tabular}{c c c }
+		% The content of the cells are separated by the symbol &.
+		% To declare the end of a row, the command \\ must be used.
+		1 & 2 & 3 \\
+		4 & 5 & 6 \\
+		7 & 8 & 9 \\
+	\end{tabular}
+	\caption{Basic table}
+\end{table}
+
+
+
+\end{document}
