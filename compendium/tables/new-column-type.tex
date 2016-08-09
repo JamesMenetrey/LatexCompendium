@@ -1,0 +1,31 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% Required to use colors (used for this example)
+\usepackage{xcolor}
+\usepackage{colortbl}
+
+% Required to define new columns
+\usepackage{array}
+
+% The command \newcolumntype{name}[number of parameters]{argument} creates customized column types to be used in the preamble of the environment such as tabular.
+\newcolumntype{R}[1]{>{\columncolor{#1}\bfseries}r}
+
+\begin{document}
+
+\begin{table}
+	\centering
+	% Use the custom column type with a color name as parameter.
+	\begin{tabular}{| R{lightgray} l |}
+		\hline
+		1 & Monday \\
+		2 & Tuesday \\
+		3 & $\cdots$ \\
+		\hline
+	\end{tabular}
+	\caption{Weekdays}
+\end{table}
+
+\end{document}

@@ -1,0 +1,29 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% Required to use the command \multicolumn
+\usepackage{multirow}
+
+\begin{document}
+
+\begin{table}
+	\centering
+	\begin{tabular}{| c | c | c |}
+		\hline
+		\multicolumn{2}{| c |}{\multirow{2}*{1}} & 2 \\
+		\cline{3-3}
+		\multicolumn{2}{| c |}{ } & 3 \\
+		\hline
+		4 & \multicolumn{2}{| c |}{\multirow{2}*{5}} \\
+		\cline{1-1}
+		6 & \multicolumn{2}{| c |}{ } \\
+		\hline
+		7 & 8 & 9 \\
+		\hline
+	\end{tabular}
+	\caption{Table with both merged columns and rows}
+\end{table}
+
+\end{document}
