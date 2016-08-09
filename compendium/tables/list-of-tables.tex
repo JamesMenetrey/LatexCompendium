@@ -1,0 +1,44 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% Required to have unnumbered figures
+\usepackage{caption}
+
+\begin{document}
+
+\begin{table}
+	\centering
+	\begin{tabular}{c c}
+		1 & 2 \\
+		3 & 4
+	\end{tabular}
+	\caption{Decimal numbers}
+\end{table}
+
+\begin{table}
+	\centering
+	\begin{tabular}{c c}
+		001 & 010 \\
+		011 & 100
+	\end{tabular}
+	\caption{Binary numbers}
+\end{table}
+
+% Here \caption* is used so it becomes an unnumbered table
+\begin{table}
+	\centering
+	\begin{tabular}{c c}
+		0x31 & 0x32 \\
+		0x33 & 0x34
+	\end{tabular}
+	\caption*{ASCII representation of the numbers}
+\end{table}
+
+\clearpage
+
+% Don't forget to compile twice (once to generate the list and another one to render the list)
+\listoftables
+
+\end{document}
