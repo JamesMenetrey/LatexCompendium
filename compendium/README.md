@@ -1,4 +1,4 @@
-# References
+# Compendium
 
 Check out the most common features of LaTeX by browsing the folders of your choice.
 
