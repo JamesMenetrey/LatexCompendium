@@ -1,0 +1,42 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% Set the scale of the height of the rows (set to 1.5 relative to its default height)
+\renewcommand{\arraystretch}{2}
+
+\begin{document}
+
+\section*{Style of equations}
+
+Several symbols such as the sum or an integral can be rendered differently, depending on whether this is an inline or displayed formula. We can force the rendering of the different styles with some specific commands. The table \ref{table:custom-rendering} summaries the commands with concrete examples.
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{| c | c | c |}
+		\hline
+											& \textbackslash nolimits							& \textbackslash limits \\
+		\hline
+		\textbackslash displaystyle			& $\displaystyle\sum\nolimits_{k=0}^{n}k$			& $\displaystyle\sum\limits_{k=0}^{n}k$ \\
+		\hline
+		\textbackslash textstyle			& $\textstyle\sum\nolimits_{k=0}^{n}k$				& $\textstyle\sum\limits_{k=0}^{n}k$ \\
+		\hline
+		\textbackslash scriptstyle			& $\scriptstyle\sum\nolimits_{k=0}^{n}k$			& $\scriptstyle\sum\limits_{k=0}^{n}k$ \\
+		\hline
+		\textbackslash scriptscriptstyle	& $\scriptscriptstyle\sum\nolimits_{k=0}^{n}k$		& $\scriptscriptstyle\sum\limits_{k=0}^{n}k$ \\
+		\hline
+	\end{tabular}
+	\caption{Summary of commands and styling}
+	\label{table:custom-rendering}
+\end{table}
+
+
+\begin{description}
+	\item[nolimits] Set the position of the superscript and subscript at the right of the symbol.
+	\item[limits] Set the position of the superscript and subscript at the top and bottom of the symbol.
+\end{description}
+
+The style of the all maths environments in the document can be forced by using the command \emph{\textbackslash everymath{\textbackslash displaystyle}} in the preamble.
+
+\end{document}

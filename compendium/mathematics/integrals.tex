@@ -1,0 +1,47 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% Main maths packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+
+% Declare a differential command in order to not display the "d" in italic
+\newcommand*{\dd}[1][x]{\,\mathrm{d}#1}
+
+\begin{document}
+
+\section*{Integrals}
+
+\subsection*{Simple integrals}
+
+\[\int x^2 \dd\]
+
+% The bounds are written at the right of the integral
+\[\int_{0}^{\infty} x^2 \dd\]
+
+% The bounds are written at the top and bottom of the integral by specifying \limits.
+%Refers styling.tex for more information about the command \limits.
+\[\int\limits_{0}^{\infty} x^2 \dd\]
+
+\[\oint x^2 \dd\]
+
+\subsection*{Double integrals}
+
+\[\iint x^2 \dd \]
+
+\[\int\int x^2 \dd\]
+
+\[\int_{0}^{4}\int_{1}^{3} x^2 \dd\]
+
+\subsection*{Triple integrals}
+
+\[\iiint x^2 \dd\]
+
+\[\int_{x=0}^{x=5}\int_{y=0}^{y=4}\int_{z=1}^{z=3} x^2+y-z \dd\]
+
+\[\int\limits_{x=0}^{x=5}\int\limits_{y=0}^{y=4}\int\limits_{z=1}^{z=3} x^2+y-z \dd\]
+
+\end{document}

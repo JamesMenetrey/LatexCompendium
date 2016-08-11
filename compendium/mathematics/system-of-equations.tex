@@ -1,0 +1,93 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% Main maths packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+
+% First and foremost, never use the environment eqnarray. It is not recommended because spacing is inconsistent.
+
+\begin{document}
+
+\section*{System of equations}
+
+\subsection*{System with \emph{align} (numbered)}
+
+\begin{align}
+	x + 2y - z &= 4 \\
+	x + y - 5z &= -1 \\
+	2x - y + z &= 10
+\end{align}
+
+\subsection*{System with \emph{align} (numbered) and \emph{subequations}}
+
+\begin{subequations}
+	\begin{align}
+		x + 2y - z &= 4 \\
+		x + y - 5z &= -1 \\
+		2x - y + z &= 10
+	\end{align}
+\end{subequations}
+
+
+\subsection*{System with \emph{align*} (unnumbered)}
+
+\begin{align*}
+	x + 2y - z &= 4 \\
+	x + y - 5z &= -1 \\
+	2x - y + z &= 10
+\end{align*}
+
+This environment can also be used to align equations on the same line:
+
+\begin{align*}
+	 f(x)  &= a x^2+b x +c   &   g(x)  &= d x^3 \\
+	 f'(x) &= 2 a x +b       &   g'(x) &= 3 d x^2
+\end{align*}
+
+\subsection*{Braces with \emph{aligned}}
+
+The environment \emph{aligned} is similar to align, to be used inside another mathematics environment.
+
+% The commands \left and \right insert a brace. The type of the brace is written just after the command.
+% When \left is called, \right is mandatory.
+\[
+\left(
+\begin{aligned}
+	x + 2y - z &= 4 \\
+	x + y - 5z &= -1 \\
+	2x - y + z &= 10
+\end{aligned}
+\right)
+\]
+
+% In the case where only one brace is needed, the other brace must be marked with a point (.) to hide it.
+\[
+\left\{
+\begin{aligned}
+x + 2y - z &= 4 \\
+x + y - 5z &= -1 \\
+2x - y + z &= 10
+\end{aligned}
+\right.
+\]
+
+\subsection*{System with \emph{array}}
+
+The environment \emph{array} is for more advanced scenario. It is basically the same as \emph{align}, but the columns and their alignment are explicitly indicated. It must be used in the math mode.
+
+\[
+\left\{
+\begin{array}{ r c l}
+		x + z &=& y - 4 \\
+		5z &=& x + y -1 \\
+		2x - y &=& 10 - y
+\end{array}
+\right.
+\]
+
+
+\end{document}

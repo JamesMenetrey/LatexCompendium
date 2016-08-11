@@ -3,9 +3,6 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 
-% Set the scale of the height of the rows (set to 1.5 relative to its default height)
-\renewcommand{\arraystretch}{2}
-
 \begin{document}
 
 \section*{Inline (within text) formulas}
@@ -30,25 +27,12 @@ Finally, the environment \emph{displaymath} produces the same effect.
 	x^2 \cdot x^2 = x^4
 \end{displaymath}
 
-\section*{Style of equations}
+\section*{Equation numbering}
 
-Several symbols such as the sum or an integral can be rendered differently, depending on whether this is an inline or displayed formula. We can force the rendering of the different styles with some specific commands. The table \ref{table:custom-rendering} summaries the commands with a concrete examples.
+The environment \emph{equation} automatically numbers the equations.
 
-\begin{table}[h]
-	\centering
-	\begin{tabular}{| c | c | c |}
-		\hline
-		& \textbackslash displaystyle & \textbackslash textstyle \\
-		\hline
-		\textbackslash nolimits	& $\displaystyle\sum\nolimits_{k=0}^{n}k$	& $\textstyle\sum\nolimits_{k=0}^{n}k$ \\
-		\hline
-		\textbackslash limits	& $\displaystyle\sum\limits_{k=0}^{n}k$	& $\textstyle\sum\limits_{k=0}^{n}k$ \\
-		\hline
-	\end{tabular}
-	\caption{Summary of commands and styling}
-	\label{table:custom-rendering}
-\end{table}
-
-Other styling commands can be applied instead of \emph{displaystyle} or \emph{textstyle}, such as \emph{scriptstyle} or \emph{scriptscriptstyle}.
+\begin{equation} 
+	f(x)=(x+a)(x+b)
+\end{equation}
 
 \end{document}
