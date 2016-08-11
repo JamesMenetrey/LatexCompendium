@@ -1,0 +1,35 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% Required to use \cfrac
+\usepackage{amsmath}
+
+\begin{document}
+
+\section*{Simple fraction}
+
+Fractions are created as follows.
+
+% Syntax: \frac{numerator}{denominator}
+
+\[\frac{1}{x} = x^{-1}\]
+
+\section*{Continued (or cascade) fractions}
+
+A fraction can contain another one. If the command \emph{\textbackslash frac} is, this would be the result:
+
+\[\frac{x}{x + \frac{1}{2}}\]
+
+The sub fraction is very small. This is why the command \emph{\textbackslash cfrac} is recommended for continued fractions:
+
+\[\cfrac{x}{x + \cfrac{1}{2}}\]
+
+Some people prefer to still use \emph{\textbackslash frac} and use the command \emph{\textbackslash displaystyle} before each sub fractions:
+
+\[\frac{x}{x + \displaystyle\frac{1}{2}}\]
+
+Despite this practice is sometimes promoted, it should be avoided because the equation has some spacing issues, such as on top of $\frac{1}{2}$.
+
+\end{document}

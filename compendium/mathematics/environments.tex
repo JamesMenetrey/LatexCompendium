@@ -1,0 +1,28 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\begin{document}
+
+\section*{Inline (within text) formulas}
+
+The equation $x + x = 2x$ is inside a text, which uses the \TeX{} shorthand.
+In addition, an equation can be written like \(x \cdot x = x^2\) as well, using the \LaTeX{} shorthand.
+Finally, the environment \emph{math} can be used like this \begin{math}a^2 + b + c = 0\end{math}.
+
+\section*{Displayed equations}
+
+The recommended syntax to render a floating equation is to use the syntax below.
+
+\[a \cdot x = ax \]
+
+The use of the syntax \emph{\$\$$\cdots$\$\$} should be avoided, because, it will modify vertical spacing within equations, rendering them inconsistent.
+
+Finally, the environment \emph{displaymath} produces the same effect.
+
+\begin{displaymath}
+	x^2 \cdot x^2 = x^4
+\end{displaymath}
+
+\end{document}
