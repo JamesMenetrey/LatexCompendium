@@ -1,0 +1,42 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% Required to call the command \operatorname{name} and \DeclareMathOperator{command}{definition}
+\usepackage{amsmath}
+
+% Required to render the clickable url
+\usepackage[hyphens]{url}
+\usepackage{hyperref}
+
+% Declare a new math function
+\DeclareMathOperator{\abc}{abc}
+
+\begin{document}
+	
+\section*{Existing functions}
+
+\LaTeX{} comes with a lot of built-in mathematical functions, such as $\cos x$, $\ln x$ or $\max x$.
+A complete list of symbols can be found in the \emph{The Comprehensive LATEX Symbol List} hosted in the \emph{Best Practices} part of this repository (\url{https://github.com/ZenLulz/LatexCompendium/blob/master/best-practices/the-comprehensive-latex-symbol-list.pdf}).
+
+\section*{Custom functions}
+\subsection*{The command \emph{operatorname}}
+
+The following formula uses a custom function called \emph{abc}.
+
+\[\operatorname{abc} x\]
+
+\subsection*{The command \emph{DeclareMathOperator}}
+
+This command enables to define math functions or operators in the preamble so they can be reused everywhere.
+
+\[\abc x\]
+
+\subsection*{The command \emph{mathrm}}
+
+Many people use the command \emph{mathrm}, nevertheless this leads to space issue, as illustrated below.
+
+\[\mathrm{abc}x\]
+
+\end{document}
