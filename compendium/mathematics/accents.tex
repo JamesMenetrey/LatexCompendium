@@ -1,0 +1,62 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% Main maths packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+
+% Required to use the underbracket
+\usepackage{mathtools}
+
+\begin{document}
+
+\subsection*{Basic accents}
+
+\[
+	\vec{a} =
+	\begin{pmatrix}
+		1\\
+		1
+	\end{pmatrix}
+\]
+
+\[
+\hat{a} = 90^\circ
+\]
+
+The other accents can be found in the symbols list in the \emph{Best Practices} part in the \LaTeX Compendium.
+
+\subsection*{Stacking elements}
+
+\[
+	a \overset{?}{=} b
+\]
+
+\[
+	a \underset{k = 0}{=} b
+\]
+
+\[
+	\sum_{\substack{k=0 \\ i=0 \\ j=0}}^{n} i + j + k
+\]
+
+\subsection*{Arrows}
+
+\[
+	a \xrightarrow[down]{up} b
+\]
+
+\[
+	a \xleftarrow[down]{up} b
+\]
+
+\subsection*{Complex decoration}
+
+\[
+	z = \overbrace{\underbracket{x}_{\text{real}} + \underbracket{iy}_{\text{imaginary}}}^{\text{complex number}}
+\]
+
+\end{document}

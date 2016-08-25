@@ -14,12 +14,32 @@
 
 \section*{System of equations}
 
+\subsection*{Grouping and centering equations with \emph{gather} (numbered)}
+
+
+
+\begin{gather}
+	x + 2y - z = 4 \\
+	x + y - 5z = -1 \\
+	2x - z = 10
+\end{gather}
+
+In addition, he environment \emph{gathered} can be used another mathematical environment.
+
+\subsection*{Grouping and centering equations with \emph{gather} (unnumbered)}
+
+\begin{gather*}
+x + 2y - z = 4 \\
+x + y - 5z = -1 \\
+2x - z = 10
+\end{gather*}
+
 \subsection*{System with \emph{align} (numbered)}
 
 \begin{align}
 	x + 2y - z &= 4 \\
 	x + y - 5z &= -1 \\
-	2x - y + z &= 10
+	2x - z &= 10
 \end{align}
 
 \subsection*{System with \emph{align} (numbered) and \emph{subequations}}
@@ -28,17 +48,16 @@
 	\begin{align}
 		x + 2y - z &= 4 \\
 		x + y - 5z &= -1 \\
-		2x - y + z &= 10
+		2x - z &= 10
 	\end{align}
 \end{subequations}
-
 
 \subsection*{System with \emph{align*} (unnumbered)}
 
 \begin{align*}
 	x + 2y - z &= 4 \\
 	x + y - 5z &= -1 \\
-	2x - y + z &= 10
+	2x - z &= 10
 \end{align*}
 
 This environment can also be used to align equations on the same line:
@@ -59,7 +78,7 @@ The environment \emph{aligned} is similar to align, to be used inside another ma
 \begin{aligned}
 	x + 2y - z &= 4 \\
 	x + y - 5z &= -1 \\
-	2x - y + z &= 10
+	2x - z &= 10
 \end{aligned}
 \right)
 \]
@@ -70,7 +89,7 @@ The environment \emph{aligned} is similar to align, to be used inside another ma
 \begin{aligned}
 x + 2y - z &= 4 \\
 x + y - 5z &= -1 \\
-2x - y + z &= 10
+2x - z &= 10
 \end{aligned}
 \right.
 \]
@@ -89,5 +108,13 @@ The environment \emph{array} is for more advanced scenario. It is basically the 
 \right.
 \]
 
+\subsection*{Displaying long equations}
+
+The environment \emph{multline} can be used to display formula on multiple lines.
+
+\begin{multline*}
+	f(x) = 60x^{15} + 56x^{14} + 52x^{13} + 48x^{12} + 44x^{11} + 40x^{10} + 36x^{9} + 32x^{8}\\
+	+ 28x^{7} + 24x^{6} + 20x^{5} + 16x^{4} + 12x^{3} + 8x^{2} + 4
+\end{multline*}
 
 \end{document}

@@ -1,0 +1,67 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% Main maths packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+
+% Required to declare unnumbered theorems. It enhances the style of the theorems as well.
+% Required to use proofs.
+\usepackage{amsthm}
+
+% The syntax is \newtheorem{envname}[theorem name to share the numbering]{caption}[section type/theorem name to number it accordingly].
+\newtheorem{theorem}{Theorem}[subsection]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem*{definition}{Definition}
+
+\begin{document}
+
+\section{Theorems, corollaries and lemmas}
+
+\subsection{Declare theorems}
+
+First, the theorem must be declared in the preamble. It can be used in the document afterwards. The name of the author can be specified between brackets.
+
+\begin{theorem}[Pythagore]
+	\label{pythagore}
+	the square of the hypotenuse is equal to the sum of the squares of the other two sides.
+\end{theorem}
+
+\begin{corollary}
+	In any right triangle, the hypotenuse is greater than any one of the other sides, but less than their sum.
+\end{corollary}
+
+\begin{theorem}
+	Another theorem...
+\end{theorem}
+
+\begin{corollary}
+	Another corollary...
+\end{corollary}
+
+\begin{lemma}
+	A lemma, which shares the same numbering as the theorem.
+\end{lemma}
+
+A theorem can be referenced easily, such as \ref{pythagore}.
+
+
+\subsection{Unnumbered theorems}
+
+\begin{definition}
+	This is an unnumbered definition.
+\end{definition}
+
+\subsection{Proofs}
+
+\begin{proof}
+	The two large squares shown in the figure each contain four identical triangles, and the only difference between the two large squares is that the triangles are arranged differently. Therefore, the white space within each of the two large squares must have equal area. Equating the area of the white space yields the Pythagorean Theorem.
+\end{proof}
+
+Note the white square at the end of the proof, it stands for Q.E.D. The abbreviation "Q.E.D." is written to indicate the end of a proof. This abbreviation stands for "Quod Erat Demonstrandum", which is Latin for "that which was to be demonstrated". A more common alternative is to use a square or a rectangle.
+
+\end{document}

@@ -1,0 +1,86 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% Main maths packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+
+\begin{document}
+
+\section*{Piecewise functions}
+
+\subsection*{The environment \emph{cases}}
+
+The best practices to define piecewise functions is to the environment \emph{cases}.
+
+\[
+	\operatorname{abs}(x)=
+	\begin{cases}
+		-x	& \text{if } x < 0 \\
+		x	& \text{if } x \ge 0
+	\end{cases}
+\]
+
+\subsection*{The manual way using \emph{aligned}}
+
+Piecewise functions can also be done using a brace and the environment \emph{aligned}.
+
+\[
+	\operatorname{abs}(x)=
+	\left\{
+	\begin{aligned}
+		-x	& : x < 0 \\
+		x	& : x \ge 0
+	\end{aligned}
+	\right.
+\]
+
+Within cases, \emph{text} style math is used with results such as:
+
+\[
+	f(x)=
+	\begin{cases}
+		\int_{0}^{10} x\, dx & \text{if } x \ge 0 \\
+		\frac{1}{x} & \text{if } x < 0
+	\end{cases}
+\]
+
+\emph{Display} style may be used instead, by using the environment \emph{dcases} with the package \emph{mathtools}:
+
+\[
+	f(x)=
+	\begin{dcases}
+		\int_{0}^{10} x\, dx & \text{if } x \ge 0 \\
+		\frac{1}{x} & \text{if } x < 0
+	\end{dcases}
+\]
+
+Often the second column consists mostly of normal text. To set it in the normal font of the document, the \emph{dcases*} environment may be used:
+
+\[
+	f(x)=
+	\begin{dcases*}
+		\int_{0}^{10} x\, dx & when $x$ is even \\
+		\frac{1}{x} & when $x$ is odd
+	\end{dcases*}
+\]
+
+\subsection*{The manual way using \emph{array}}
+
+Piecewise functions can also be done using a brace and the environment \emph{array}. This enables to control the alignment of the elements.
+
+\[
+	\operatorname{abs}(x)=
+	\left\{
+	\begin{array}{lr}
+		-x	& : x < 0 \\
+		x	& : x \ge 0
+	\end{array}
+	\right.
+\]
+
+\end{document}
