@@ -8,13 +8,45 @@
 \usepackage{amssymb}
 \usepackage{mathrsfs}
 
+\usepackage{tabularx}
+
 % First and foremost, never use the environment eqnarray. It is not recommended because spacing is inconsistent.
 
 \begin{document}
 
 \section*{System of equations}
 
-\subsection*{Grouping and centering equations with \emph{gather} (numbered)}
+
+\subsection*{Summary of the environments}
+
+\begin{table}[h]
+	\begin{tabularx}{\textwidth}{| X | X | X |}
+	\hline
+	\textbf{Environment names} & \textbf{Description} & \textbf{Notes} \\
+	\hline
+	\emph{gather} and \emph{gather*} & Consecutive equations with an alignment to the center. & \\
+	\hline
+	\emph{align}, \emph{align*}, \emph{aligned} and \emph{split} & Consecutive equations with user-defined alignment. & \\
+	\hline
+	\emph{flalign} and \emph{flalign*} & Similar to \emph{align}, but left aligns first equation column, and right aligns last column. & \\
+	\hline
+	\emph{alignat} and \emph{alignat*} & Takes an argument specifying number of columns. Allows control of the horizontal space between equations. & This environment takes one argument, the number of “equation columns”: count the maximum number of \&s in any row, add 1 and divide by 2. \\
+	\hline
+	\emph{array} & Advanced alignment scenario. Enables to control how to columns are aligned. & \\
+	\hline
+	\emph{multline} and \emph{multline*} & First line left aligned, last line right aligned. & Equation number aligned vertically with first line and not centered as with other environments. \\
+	\hline
+	\emph{eqnarray} and \emph{eqnarray*} & Similar to \emph{align} and \emph{align*}. & Not recommended because spacing is inconsistent. \\
+	\hline
+	\end{tabularx}
+\end{table}
+
+This table is based on the one available on Wikibooks, \LaTeX Advanced Mathematics.
+
+\newpage
+
+
+\subsection*{Grouping and centering equations with \emph{gather}}
 
 \begin{gather}
 	x + 2y - z = 4 \\
@@ -22,17 +54,10 @@
 	2x - z = 10
 \end{gather}
 
-In addition, he environment \emph{gathered} can be used another mathematical environment.
+In addition, the environment \emph{gather*} removes the equation numbering. The environment \emph{gathered} and can be used in another mathematical environment.
 
-\subsection*{Grouping and centering equations with \emph{gather} (unnumbered)}
 
-\begin{gather*}
-x + 2y - z = 4 \\
-x + y - 5z = -1 \\
-2x - z = 10
-\end{gather*}
-
-\subsection*{System with \emph{align} (numbered)}
+\subsection*{Align equations with \emph{align}}
 
 \begin{align}
 	x + 2y - z &= 4 \\
@@ -40,7 +65,18 @@ x + y - 5z = -1 \\
 	2x - z &= 10
 \end{align}
 
-\subsection*{System with \emph{align} (numbered) and \emph{subequations}}
+This environment can also be used to align equations on the same line:
+
+\begin{align*}
+	f(x)  &= a x^2+b x +c   &   g(x)  &= d x^3 \\
+	f'(x) &= 2 a x +b       &   g'(x) &= 3 d x^2
+\end{align*}
+
+In addition, the environment \emph{align*} removes the equation numbering. The environment \emph{aligned} and \emph{split} are the similar to \emph{align} and \emph{align*} but can be used in another mathematical environment.
+
+\subsubsection*{Align equations with \emph{align} and \emph{subequations}}
+
+The environment \emph{subequations} changes the way how \LaTeX counts the equations.
 
 \begin{subequations}
 	\begin{align}
@@ -50,22 +86,7 @@ x + y - 5z = -1 \\
 	\end{align}
 \end{subequations}
 
-\subsection*{System with \emph{align*} (unnumbered)}
-
-\begin{align*}
-	x + 2y - z &= 4 \\
-	x + y - 5z &= -1 \\
-	2x - z &= 10
-\end{align*}
-
-This environment can also be used to align equations on the same line:
-
-\begin{align*}
-	 f(x)  &= a x^2+b x +c   &   g(x)  &= d x^3 \\
-	 f'(x) &= 2 a x +b       &   g'(x) &= 3 d x^2
-\end{align*}
-
-\subsection*{Braces with \emph{aligned}}
+\subsubsection*{Braces a system of equations}
 
 The environment \emph{aligned} is similar to align, to be used inside another mathematics environment.
 
@@ -92,7 +113,37 @@ x + y - 5z &= -1 \\
 \right.
 \]
 
-\subsection*{System with \emph{array}}
+
+\subsection*{Align equations to the left with \emph{flalign}}
+
+\begin{flalign}
+a &= b+c &\\
+&= 1+1 &\\
+&= 2  &
+\end{flalign}
+
+In addition, the environment \emph{flalign*} removes the equation numbering.
+
+
+\subsection*{Align equations with \emph{alignat}}
+
+The environment \emph{alignat} enables to control of the horizontal space between equations. Indeed, no addition space is added between equation, at the opposite of the environment \emph{align}.
+
+The mathematical development below is aligned according the arrow and the equal signs.
+
+\begin{alignat}{2}
+	&& \sqrt{4 x^2} - 1 &= 0 \\
+	&\Rightarrow & \sqrt{4} \sqrt{x^2} &= 1 \\
+	&\Rightarrow & 2 \left|x\right| &= 1 \\
+	&\Rightarrow & x &= \pm \frac{1}{2}
+\end{alignat}
+
+This environment takes an argument specifying number of columns. The rule of thumb to determine the argument is to count the maximum number of \& symbols on one row, add 1 and divide by 2.
+
+In addition, the environment \emph{alignat*} removes the equation numbering. The environment \emph{alignedat} and \emph{alignedat*} and can be used in another mathematical environment.
+
+
+\subsection*{Align equations with \emph{array}}
 
 The environment \emph{array} is for more advanced scenario. It is basically the same as \emph{align}, but the columns and their alignment are explicitly indicated. It must be used in the math mode.
 
@@ -105,6 +156,7 @@ The environment \emph{array} is for more advanced scenario. It is basically the 
 \end{array}
 \right.
 \]
+
 
 \subsection*{Displaying long equations}
 
