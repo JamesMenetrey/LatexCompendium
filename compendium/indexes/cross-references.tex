@@ -1,0 +1,24 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[UKenglish]{babel}
+
+% Required package to generate indexes
+\usepackage{makeidx}
+
+% Indicate an index is generated in this document
+\makeindex
+
+
+\begin{document}
+	
+% Cross references can be added using "|see" and "|seealso".
+	
+Lorem \index{Lorem}
+ipsum \index{Ipsum|see{Lorem}}
+dolor sit amet, consectetur adipiscing elit \index{Elit|seealso{Ipsum}}.
+
+\printindex
+
+\end{document}

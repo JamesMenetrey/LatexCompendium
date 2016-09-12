@@ -10,3 +10,6 @@
 *.toc
 *-blx.bib
 *.out
+*.ilg
+*.ind
+*.idx

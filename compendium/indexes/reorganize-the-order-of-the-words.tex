@@ -1,0 +1,38 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[UKenglish]{babel}
+
+% Required package to generate indexes
+\usepackage{makeidx}
+
+% Indicate an index is generated in this document
+\makeindex
+
+\begin{document}
+	
+\section*{Reorganize the words}
+	
+By default, \LaTeX\ has some issues when dealing with accentuated characters or with uppercase/lowercase words in the indexes. In order to properly specify the order of the words, the command \emph{\textbackslash index} must be used with the following syntax:
+
+\begin{verbatim}
+	\index{word-to-order@word-to-display}
+\end{verbatim}
+
+The \emph{word to order} is an hidden work only used to properly order the \emph{word to display} in the index.
+
+\section*{Example}
+
+Referenced words:
+
+\begin{itemize}
+	\item Patate \index{Patate@Patate}
+	\item Pâté \index{Pate@Pâté}
+\end{itemize}
+
+% Without this syntax, the index renders first Pâté and then Patate.
+
+\printindex
+
+\end{document}

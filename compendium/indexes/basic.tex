@@ -1,0 +1,36 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[UKenglish]{babel}
+
+% Required package to generate indexes
+\usepackage{makeidx}
+
+% Indicate an index is generated in this document
+\makeindex
+
+\begin{document}
+	
+\section*{How to generate an index}
+
+\begin{enumerate}
+	\item Include the package \emph{makeidx}
+	\item Insert the command \emph{\textbackslash makeindex} in the preamble
+	\item Insert the command \emph{\textbackslash printindex} where the index should be printed
+	\item Run \LaTeX, this generates an \emph{idx} file, containing the metadata of the words in the index, marked using the command \emph{\textbackslash index}
+	\item Run \emph{makeindex} on the \emph{idx} file to generate an \emph{ind} file, used by \LaTeX\ to create the index
+	\item Run \LaTeX\ again to include the \emph{ind} file and print the index
+\end{enumerate}
+
+\section*{Example}
+
+Lorem ipsum\index{ipsum}
+dolor sit amet, consectetur adipiscing elit. Sed sollicitudin, ligula et efficitur rhoncus, turpis dolor sodales est, non vestibulum lorem dui quis mi. Nulla eget fringilla tellus, id ultricies diam. Pellentesque placerat lectus a laoreet fermentum. Donec et ante turpis\index{turpis}.
+Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed tincidunt, est vitae convallis mattis, magna tellus convallis enim, eget tincidunt mi tellus in ipsum. Mauris ut ultrices neque. Sed posuere porttitor lorem a lacinia\index{lacinia}.
+Suspendisse blandit scelerisque enim sit amet iaculis. Curabitur blandit, quam eu facilisis venenatis, ligula mi eleifend est, sed tincidunt orci quam ac lacus. Donec non ex ultrices, ultricies purus nec, cursus turpis. Aliquam mattis sodales elementum\index{elementum}.
+Duis ultricies justo vitae viverra eleifend. Pellentesque vulputate consequat viverra. Fusce et tortor tempor, accumsan lacus id, ornare nunc.
+
+\printindex
+
+\end{document}
