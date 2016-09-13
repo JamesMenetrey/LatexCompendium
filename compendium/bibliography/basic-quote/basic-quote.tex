@@ -1,0 +1,23 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[UKenglish]{babel}
+
+% Package required to use BibLaTeX
+\usepackage{biblatex}
+
+% Import the database that stores the references (external file biblatex-db.bib).
+% This file has been created using the tool called JabRef.
+\addbibresource{biblatex-db.bib}
+
+\begin{document}
+
+% Use the comment \cite the BibLaTeX key as defined in the BibLaTeX database to reference a quote.
+% The best practices to format the key is "[last name of first author] [year] [first word of title]".
+A comprehensive summary of the most used functionalities of LaTeX.\cite{Menetrey2016LaTeX}
+
+% Print the bibliography
+\printbibliography
+
+\end{document}
