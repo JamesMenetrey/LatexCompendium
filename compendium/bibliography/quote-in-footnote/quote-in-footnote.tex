@@ -1,0 +1,24 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[UKenglish]{babel}
+
+% Package required to use BibLaTeX
+\usepackage{biblatex}
+
+% Import the database that stores the references (external file biblatex-db.bib).
+\addbibresource{biblatex-db.bib}
+
+\begin{document}
+
+% The command \footfullcite inserts the reference in the footnote of the current page.
+% The style of the footnote can be changed. Check out the style of the bibliography in the Compendium for more information.
+A comprehensive summary of the most used functionalities of LaTeX. \footfullcite{Menetrey2016LaTeX}
+
+\newpage
+
+% Print the bibliography
+\printbibliography
+
+\end{document}

@@ -1,0 +1,34 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[UKenglish]{babel}
+
+% Package required to use BibLaTeX
+\usepackage{biblatex}
+
+% Import the database that stores the references (external file biblatex-db.bib).
+\addbibresource{biblatex-db.bib}
+
+\begin{document}
+
+A comprehensive summary of the most used functionalities of LaTeX. \cite{Menetrey2016LaTeX}
+
+Because there is a law such as gravity, the universe can and will create itself from nothing. Spontaneous creation is the reason there is something rather than nothing, why the universe exists, why we exist. It is not necessary to invoke God to light the blue touch paper and set the universe going. \cite{Hawking2010Grand}
+
+Once upon a time Linus Torvalds was a skinny unknown, just another nerdy Helsinki techie who had been fooling around with computers since childhood. \cite{Torvalds2001Just}
+
+The Art of Blizzard celebrates the studio's genesis by examining the creative forces behind these games and showcasing their artistry through more than 700 pieces of concept art, paintings, and sketches. \cite{Entertainment2011Art}
+
+Eric Evans is a thought leader in software design and domain modeling. The founder of Domain Language and author of Domain-Driven Design, he recently founded a modeling community where those interested in domain modeling can come together to learn and discuss effective practices. \cite{Evans2003Domain}
+
+No source code? No problem. With IDA Pro, the interactive disassembler, you live in a source code-optional world. IDA can automatically analyze the millions of opcodes that make up an executable and present you with a disassembly. \cite{Eagle2011IDA}
+
+% Print the heading of the bibliography
+\printbibheading
+% Print a section of the bibliography where the type is book
+\printbibliography[type=book,heading=subbibliography,title={Book Sources}]
+% Print a section of the bibliography where the type is not a book
+\printbibliography[nottype=book,heading=subbibliography,title={Other Sources}]
+
+\end{document}

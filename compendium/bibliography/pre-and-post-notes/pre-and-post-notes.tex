@@ -1,0 +1,21 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[UKenglish]{babel}
+
+% Package required to use BibLaTeX
+\usepackage[style=alphabetic]{biblatex}
+
+% Import the database that stores the references (external file biblatex-db.bib).
+\addbibresource{biblatex-db.bib}
+
+\begin{document}
+
+% The command \cite can accept two optional parameters, enabling the editos to specify a text before and after the reference in the text.
+A comprehensive summary of the most used functionalities of LaTeX. \cite[see][page 12]{Menetrey2016LaTeX}
+
+% Print the bibliography
+\printbibliography
+
+\end{document}
