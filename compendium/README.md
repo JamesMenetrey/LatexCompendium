@@ -15,3 +15,4 @@ In the case you are not familiar with LaTeX, we recommend to following the refer
 - [Table of contents](table-of-contents)
 - [Indexes](indexes)
 - [Bibliography](bibliography)
+- [Typography](typography)
