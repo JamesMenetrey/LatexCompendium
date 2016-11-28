@@ -1,0 +1,55 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% Required package to import.
+\usepackage{minted}
+
+% We can optionally uses a special theme to render the source code.
+\usemintedstyle{pastie}
+
+\begin{document}
+
+\section*{An SQL query using \emph{minted}}
+
+% Minted uses the environment: minted.
+% Optional parameters can be passed between brackets. In this instance, the line numbers are displayed.
+% Finally, the programming language is specified in curly brackets.
+\begin{minted}[linenos]{sql}
+CREATE OR REPLACE TRIGGER Tel_On_Off
+AFTER INSERT ON STATE_CHANGE
+FOR EACH ROW
+WHEN (NEW.ChangeType='O' OR NEW.ChangeType='F')
+DECLARE
+  CELLA NUMBER;
+  N_TEL_ATTIVI_MAX NUMBER;
+BEGIN
+  --Trovo l'ID della cella in cui si trova il mio cellulare
+  SELECT CellID, MaxCalls INTO CELLA, N_TEL_ATTIVI_MAX
+  FROM CELL
+  WHERE x0<=:NEW.x AND x1>=:NEW.x AND
+        y0<=:NEW.y AND y1>=:NEW.y;
+        
+  --Telefono acceso
+  IF(:NEW.ChangeType='O') THEN
+    --Inserisco il nuovo cellulare nella tabella
+    INSERT INTO TELEPHONE(PhoneNo, x, y, PhoneState)
+    VALUES(:NEW.PhoneNo, :NEW.x, :NEW.y, :NEW.ChangeType);
+    --Aggiorno la cella in cui si trova il cellulare
+    UPDATE CELL SET CurrentPhone#=CurrentPhone#+1
+    WHERE CellID=CELLA;
+  END IF;
+  
+  --Telefono spento
+  IF(:NEW.ChangeType='F') THEN
+    --Rimozione telefono da tebella
+    DELETE FROM TELEPHONE WHERE PhoneNo=:NEW.PhoneNo;
+    --Aggiorno la cella in cui si trova il cellulare
+    UPDATE CELL SET CurrentPhone#=CurrentPhone#-1
+    WHERE CellID=CELLA;
+  END IF; 
+END;
+\end{minted}
+
+\end{document}

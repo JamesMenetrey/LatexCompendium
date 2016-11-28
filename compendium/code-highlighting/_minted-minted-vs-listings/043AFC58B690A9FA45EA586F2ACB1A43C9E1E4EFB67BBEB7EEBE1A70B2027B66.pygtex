@@ -1,0 +1,85 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{using} \PYG{n+nn}{System}\PYG{p}{;}
+\PYG{k}{using} \PYG{n+nn}{System.Runtime.InteropServices}\PYG{p}{;}
+
+\PYG{k}{namespace} \PYG{n+nn}{Binarysharp.MemoryManagement.Memory}
+\PYG{p}{\PYGZob{}}
+    \PYG{c+c1}{/// \PYGZlt{}summary\PYGZgt{}}
+    \PYG{c+c1}{/// Class representing a block of memory allocated in the local process.}
+    \PYG{c+c1}{/// \PYGZlt{}/summary\PYGZgt{}}
+    \PYG{k}{public} \PYG{k}{class} \PYG{n+nc}{LocalUnmanagedMemory} \PYG{p}{:} \PYG{n}{IDisposable}
+    \PYG{p}{\PYGZob{}}
+        \PYG{c+cp}{\PYGZsh{}region Properties}
+        \PYG{c+c1}{/// \PYGZlt{}summary\PYGZgt{}}
+        \PYG{c+c1}{/// The address where the data is allocated.}
+        \PYG{c+c1}{/// \PYGZlt{}/summary\PYGZgt{}}
+        \PYG{k}{public} \PYG{n}{IntPtr} \PYG{n}{Address} \PYG{p}{\PYGZob{}} \PYG{k}{get}\PYG{p}{;} \PYG{k}{private} \PYG{k}{set}\PYG{p}{;} \PYG{p}{\PYGZcb{}}
+        \PYG{c+c1}{/// \PYGZlt{}summary\PYGZgt{}}
+        \PYG{c+c1}{/// The size of the allocated memory.}
+        \PYG{c+c1}{/// \PYGZlt{}/summary\PYGZgt{}}
+        \PYG{k}{public} \PYG{k+kt}{int} \PYG{n}{Size} \PYG{p}{\PYGZob{}} \PYG{k}{get}\PYG{p}{;} \PYG{k}{private} \PYG{k}{set}\PYG{p}{;} \PYG{p}{\PYGZcb{}}
+        \PYG{c+cp}{\PYGZsh{}endregion}
+
+        \PYG{c+cp}{\PYGZsh{}region Constructor/Destructor}
+        \PYG{c+c1}{/// \PYGZlt{}summary\PYGZgt{}}
+        \PYG{c+c1}{/// Initializes a new instance of the \PYGZlt{}see cref=\PYGZdq{}LocalUnmanagedMemory\PYGZdq{}/\PYGZgt{} class, allocating a block of memory in the local process.}
+        \PYG{c+c1}{/// \PYGZlt{}/summary\PYGZgt{}}
+        \PYG{c+c1}{/// \PYGZlt{}param name=\PYGZdq{}size\PYGZdq{}\PYGZgt{}The size to allocate.\PYGZlt{}/param\PYGZgt{}}
+        \PYG{k}{public} \PYG{n+nf}{LocalUnmanagedMemory}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{size}\PYG{p}{)}
+        \PYG{p}{\PYGZob{}}
+            \PYG{c+c1}{// Allocate the memory}
+            \PYG{n}{Size} \PYG{p}{=} \PYG{n}{size}\PYG{p}{;}
+            \PYG{n}{Address} \PYG{p}{=} \PYG{n}{Marshal}\PYG{p}{.}\PYG{n}{AllocHGlobal}\PYG{p}{(}\PYG{n}{Size}\PYG{p}{);}
+        \PYG{p}{\PYGZcb{}}
+        \PYG{c+c1}{/// \PYGZlt{}summary\PYGZgt{}}
+        \PYG{c+c1}{/// Frees resources and perform other cleanup operations before it is reclaimed by garbage collection.}
+        \PYG{c+c1}{/// \PYGZlt{}/summary\PYGZgt{}}
+        \PYG{p}{\PYGZti{}}\PYG{n}{LocalUnmanagedMemory}\PYG{p}{()}
+        \PYG{p}{\PYGZob{}}
+            \PYG{n}{Dispose}\PYG{p}{();}
+        \PYG{p}{\PYGZcb{}}
+        \PYG{c+cp}{\PYGZsh{}endregion}
+
+        \PYG{c+cp}{\PYGZsh{}region Methods}
+        \PYG{c+cp}{\PYGZsh{}region Dispose (implementation of IDisposable)}
+        \PYG{c+c1}{/// \PYGZlt{}summary\PYGZgt{}}
+        \PYG{c+c1}{/// Releases the memory held by the \PYGZlt{}see cref=\PYGZdq{}LocalUnmanagedMemory\PYGZdq{}/\PYGZgt{} object.}
+        \PYG{c+c1}{/// \PYGZlt{}/summary\PYGZgt{}}
+        \PYG{k}{public} \PYG{k}{virtual} \PYG{k}{void} \PYG{n+nf}{Dispose}\PYG{p}{()}
+        \PYG{p}{\PYGZob{}}
+            \PYG{c+c1}{// Free the allocated memory}
+            \PYG{n}{Marshal}\PYG{p}{.}\PYG{n}{FreeHGlobal}\PYG{p}{(}\PYG{n}{Address}\PYG{p}{);}
+            \PYG{c+c1}{// Remove the pointer}
+            \PYG{n}{Address} \PYG{p}{=} \PYG{n}{IntPtr}\PYG{p}{.}\PYG{n}{Zero}\PYG{p}{;}
+            \PYG{c+c1}{// Avoid the finalizer}
+            \PYG{n}{GC}\PYG{p}{.}\PYG{n}{SuppressFinalize}\PYG{p}{(}\PYG{k}{this}\PYG{p}{);}
+        \PYG{p}{\PYGZcb{}}
+        \PYG{c+cp}{\PYGZsh{}endregion}
+        \PYG{c+cp}{\PYGZsh{}region Read}
+        \PYG{c+c1}{/// \PYGZlt{}summary\PYGZgt{}}
+        \PYG{c+c1}{/// Reads data from the unmanaged block of memory.}
+        \PYG{c+c1}{/// \PYGZlt{}/summary\PYGZgt{}}
+        \PYG{c+c1}{/// \PYGZlt{}typeparam name=\PYGZdq{}T\PYGZdq{}\PYGZgt{}The type of data to return.\PYGZlt{}/typeparam\PYGZgt{}}
+        \PYG{c+c1}{/// \PYGZlt{}returns\PYGZgt{}The return value is the block of memory casted in the specified type.\PYGZlt{}/returns\PYGZgt{}}
+        \PYG{k}{public} \PYG{n}{T} \PYG{n}{Read}\PYG{p}{\PYGZlt{}}\PYG{n}{T}\PYG{p}{\PYGZgt{}()}
+        \PYG{p}{\PYGZob{}}
+            \PYG{c+c1}{// Marshal data from the block of memory to a new allocated managed object}
+            \PYG{k}{return} \PYG{p}{(}\PYG{n}{T}\PYG{p}{)}\PYG{n}{Marshal}\PYG{p}{.}\PYG{n}{PtrToStructure}\PYG{p}{(}\PYG{n}{Address}\PYG{p}{,} \PYG{k}{typeof}\PYG{p}{(}\PYG{n}{T}\PYG{p}{));}
+        \PYG{p}{\PYGZcb{}}
+        \PYG{c+c1}{/// \PYGZlt{}summary\PYGZgt{}}
+        \PYG{c+c1}{/// Reads an array of bytes from the unmanaged block of memory.}
+        \PYG{c+c1}{/// \PYGZlt{}/summary\PYGZgt{}}
+        \PYG{c+c1}{/// \PYGZlt{}returns\PYGZgt{}The return value is the block of memory.\PYGZlt{}/returns\PYGZgt{}}
+        \PYG{k}{public} \PYG{k+kt}{byte}\PYG{p}{[]} \PYG{n+nf}{Read}\PYG{p}{()}
+        \PYG{p}{\PYGZob{}}
+            \PYG{c+c1}{// Allocate an array to store data}
+            \PYG{k+kt}{var} \PYG{n}{bytes} \PYG{p}{=} \PYG{k}{new} \PYG{k+kt}{byte}\PYG{p}{[}\PYG{n}{Size}\PYG{p}{];}
+            \PYG{c+c1}{// Copy the block of memory to the array}
+            \PYG{n}{Marshal}\PYG{p}{.}\PYG{n}{Copy}\PYG{p}{(}\PYG{n}{Address}\PYG{p}{,} \PYG{n}{bytes}\PYG{p}{,} \PYG{l+m}{0}\PYG{p}{,} \PYG{n}{Size}\PYG{p}{);}
+            \PYG{c+c1}{// Return the array}
+            \PYG{k}{return} \PYG{n}{bytes}\PYG{p}{;}
+        \PYG{p}{\PYGZcb{}}
+        \PYG{c+cp}{\PYGZsh{}endregion}
+    \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

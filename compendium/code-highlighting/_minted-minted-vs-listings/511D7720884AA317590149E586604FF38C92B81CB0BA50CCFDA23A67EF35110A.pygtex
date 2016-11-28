@@ -1,0 +1,35 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{CREATE} \PYG{k}{OR} \PYG{k}{REPLACE} \PYG{k}{TRIGGER} \PYG{n}{Tel\PYGZus{}On\PYGZus{}Off}
+\PYG{k}{AFTER} \PYG{k}{INSERT} \PYG{k}{ON} \PYG{n}{STATE\PYGZus{}CHANGE}
+\PYG{k}{FOR} \PYG{k}{EACH} \PYG{k}{ROW}
+\PYG{k}{WHEN} \PYG{p}{(}\PYG{k}{NEW}\PYG{p}{.}\PYG{n}{ChangeType}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}O\PYGZsq{}} \PYG{k}{OR} \PYG{k}{NEW}\PYG{p}{.}\PYG{n}{ChangeType}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}F\PYGZsq{}}\PYG{p}{)}
+\PYG{k}{DECLARE}
+  \PYG{n}{CELLA} \PYG{n+nb}{NUMBER}\PYG{p}{;}
+  \PYG{n}{N\PYGZus{}TEL\PYGZus{}ATTIVI\PYGZus{}MAX} \PYG{n+nb}{NUMBER}\PYG{p}{;}
+\PYG{k}{BEGIN}
+  \PYG{c+c1}{\PYGZhy{}\PYGZhy{}Trovo l\PYGZsq{}ID della cella in cui si trova il mio cellulare}
+  \PYG{k}{SELECT} \PYG{n}{CellID}\PYG{p}{,} \PYG{n}{MaxCalls} \PYG{k}{INTO} \PYG{n}{CELLA}\PYG{p}{,} \PYG{n}{N\PYGZus{}TEL\PYGZus{}ATTIVI\PYGZus{}MAX}
+  \PYG{k}{FROM} \PYG{n}{CELL}
+  \PYG{k}{WHERE} \PYG{n}{x0}\PYG{o}{\PYGZlt{}=}\PYG{p}{:}\PYG{k}{NEW}\PYG{p}{.}\PYG{n}{x} \PYG{k}{AND} \PYG{n}{x1}\PYG{o}{\PYGZgt{}=}\PYG{p}{:}\PYG{k}{NEW}\PYG{p}{.}\PYG{n}{x} \PYG{k}{AND}
+        \PYG{n}{y0}\PYG{o}{\PYGZlt{}=}\PYG{p}{:}\PYG{k}{NEW}\PYG{p}{.}\PYG{n}{y} \PYG{k}{AND} \PYG{n}{y1}\PYG{o}{\PYGZgt{}=}\PYG{p}{:}\PYG{k}{NEW}\PYG{p}{.}\PYG{n}{y}\PYG{p}{;}
+
+  \PYG{c+c1}{\PYGZhy{}\PYGZhy{}Telefono acceso}
+  \PYG{k}{IF}\PYG{p}{(:}\PYG{k}{NEW}\PYG{p}{.}\PYG{n}{ChangeType}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}O\PYGZsq{}}\PYG{p}{)} \PYG{k}{THEN}
+    \PYG{c+c1}{\PYGZhy{}\PYGZhy{}Inserisco il nuovo cellulare nella tabella}
+    \PYG{k}{INSERT} \PYG{k}{INTO} \PYG{n}{TELEPHONE}\PYG{p}{(}\PYG{n}{PhoneNo}\PYG{p}{,} \PYG{n}{x}\PYG{p}{,} \PYG{n}{y}\PYG{p}{,} \PYG{n}{PhoneState}\PYG{p}{)}
+    \PYG{k}{VALUES}\PYG{p}{(:}\PYG{k}{NEW}\PYG{p}{.}\PYG{n}{PhoneNo}\PYG{p}{,} \PYG{p}{:}\PYG{k}{NEW}\PYG{p}{.}\PYG{n}{x}\PYG{p}{,} \PYG{p}{:}\PYG{k}{NEW}\PYG{p}{.}\PYG{n}{y}\PYG{p}{,} \PYG{p}{:}\PYG{k}{NEW}\PYG{p}{.}\PYG{n}{ChangeType}\PYG{p}{);}
+    \PYG{c+c1}{\PYGZhy{}\PYGZhy{}Aggiorno la cella in cui si trova il cellulare}
+    \PYG{k}{UPDATE} \PYG{n}{CELL} \PYG{k}{SET} \PYG{n}{CurrentPhone}\PYG{o}{\PYGZsh{}=}\PYG{n}{CurrentPhone}\PYG{o}{\PYGZsh{}+}\PYG{l+m+mi}{1}
+    \PYG{k}{WHERE} \PYG{n}{CellID}\PYG{o}{=}\PYG{n}{CELLA}\PYG{p}{;}
+  \PYG{k}{END} \PYG{k}{IF}\PYG{p}{;}
+
+  \PYG{c+c1}{\PYGZhy{}\PYGZhy{}Telefono spento}
+  \PYG{k}{IF}\PYG{p}{(:}\PYG{k}{NEW}\PYG{p}{.}\PYG{n}{ChangeType}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}F\PYGZsq{}}\PYG{p}{)} \PYG{k}{THEN}
+    \PYG{c+c1}{\PYGZhy{}\PYGZhy{}Rimozione telefono da tebella}
+    \PYG{k}{DELETE} \PYG{k}{FROM} \PYG{n}{TELEPHONE} \PYG{k}{WHERE} \PYG{n}{PhoneNo}\PYG{o}{=}\PYG{p}{:}\PYG{k}{NEW}\PYG{p}{.}\PYG{n}{PhoneNo}\PYG{p}{;}
+    \PYG{c+c1}{\PYGZhy{}\PYGZhy{}Aggiorno la cella in cui si trova il cellulare}
+    \PYG{k}{UPDATE} \PYG{n}{CELL} \PYG{k}{SET} \PYG{n}{CurrentPhone}\PYG{o}{\PYGZsh{}=}\PYG{n}{CurrentPhone}\PYG{o}{\PYGZsh{}\PYGZhy{}}\PYG{l+m+mi}{1}
+    \PYG{k}{WHERE} \PYG{n}{CellID}\PYG{o}{=}\PYG{n}{CELLA}\PYG{p}{;}
+  \PYG{k}{END} \PYG{k}{IF}\PYG{p}{;}
+\PYG{k}{END}\PYG{p}{;}
+\end{Verbatim}
