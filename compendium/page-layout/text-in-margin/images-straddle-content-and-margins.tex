@@ -1,0 +1,56 @@
+% Thanks to Geoffrey Jones, author of this document, found at http://tex.stackexchange.com/a/5629/108649
+
+% Note this document is two-sided
+\documentclass[twoside]{article}
+
+\usepackage{graphicx}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{caption}[2008/04/01]
+\usepackage{wrapfig}
+\usepackage{subfig}
+
+\usepackage{lipsum}  % to provide "filler" text
+
+\captionsetup{
+	justification=raggedright,
+	labelfont={color=Maroon,bf},
+	font=small}
+
+\begin{document}
+	\lipsum[1-2]
+	
+	% The commande marginpar enables the writer to specify content in margins.
+	% Three marginpar figures to see how this looks in
+	% the left and right margins of twoside docs...
+	\marginpar{\includegraphics[width=0.95\marginparwidth]{resources/figure.png}
+		\captionof{figure}{Carl Friedrich Gauss, født 1777, er bedst kendt for normalfordelingen}}
+	\lipsum[1-2]
+	\marginpar{\includegraphics[width=0.95\marginparwidth]{resources/figure.png}
+		\captionof{figure}{Carl Friedrich Gauss, født 1777, er bedst kendt for normalfordelingen}}
+	\lipsum[1-4]
+	\marginpar{\includegraphics[width=0.95\marginparwidth]{resources/figure.png}
+		\captionof{figure}{Carl Friedrich Gauss, født 1777, er bedst kendt for normalfordelingen}}
+	\lipsum[5-6]
+	
+	\lipsum[2]
+	\setlength\columnsep{\marginparsep}
+	
+	% The environment wrapfigure enables to insert a content next to a portion of text.
+	% The prototype of the environment is:
+	%	{wrapfigure}
+	%		[number of lines required to properly integrate the side content]
+	%		{alignment of the content}
+	%		{size of the allowable overflow in the margin}
+	%		[width of the content]
+	
+	\begin{wrapfigure}[33]{r}[3cm]{0.46\textwidth}
+		\vspace{-1.5\baselineskip}
+		\subfloat[Giveaway pr. beholder i procent]{\label{lbl1}
+			\includegraphics[width=0.45\textwidth]{resources/figure.png}}\par
+		\subfloat[Giveaway pr. beholder i procent]{\label{lbl2}
+			\includegraphics[width=0.45\textwidth]{resources/figure.png}}
+		\caption{Resultater for testsæt 1 blah blah blah blah blah blah blah.}
+	\end{wrapfigure}
+	\lipsum[11-14]
+	
+\end{document}

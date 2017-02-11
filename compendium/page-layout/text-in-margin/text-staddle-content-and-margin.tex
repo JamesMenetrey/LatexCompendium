@@ -1,0 +1,34 @@
+\documentclass{article}
+
+\usepackage{booktabs}
+\usepackage{wrapfig}
+\usepackage{lipsum}  % to provide "filler" text
+
+\begin{document}
+	
+	\lipsum[1-2]
+	
+		
+	% The environment wrapfigure enables to insert a content next to a portion of text.
+	% The prototype of the environment is:
+	%	{wrapfigure}
+	%		[number of lines required to properly integrate the side content (not specified in that example)]
+	%		{alignment of the content}
+	%		{size of the allowable overflow in the margin (half of the width of the tabular)}
+	%		[width of the content (set to zero, because the width inherits from the width of the tabular.)]
+	
+	\begin{wrapfigure}{r}[2.5cm]{0cm}
+		\vspace{10\baselineskip}
+		\begin{tabular}{p{5cm}}
+			\toprule
+			This is an example of text that straddle the margin and the document content.
+			
+			\footnotemark\\
+			\bottomrule
+		\end{tabular}
+	\end{wrapfigure}
+	
+	\footnotetext{Example of footnote text.}
+	
+	\lipsum[3-4]	
+\end{document}
