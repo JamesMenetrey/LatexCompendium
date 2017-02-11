@@ -1,0 +1,45 @@
+% Thanks to Jubobs, the author of this document on http://tex.stackexchange.com/a/176372/108649.
+%
+% Following the advice of Robin Williams, author of The Non-Designer's Design Book:
+% 		A set of three colors equidistant from each other always creates a triad of pleasing colors.
+%
+% Those colors have been defined below in LaTeX.
+\documentclass{article}
+
+\usepackage{lipsum}
+\usepackage{filecontents}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{hyperref}
+\usepackage{cleveref}
+
+\newcommand\myshade{85}
+\colorlet{mylinkcolor}{violet}
+\colorlet{mycitecolor}{YellowOrange}
+\colorlet{myurlcolor}{Aquamarine}
+
+\hypersetup{
+  linkcolor  = mylinkcolor!\myshade!black,
+  citecolor  = mycitecolor!\myshade!black,
+  urlcolor   = myurlcolor!\myshade!black,
+  colorlinks = true,
+}
+
+\bibliographystyle{alpha}
+
+\begin{filecontents*}{mybib.bib}
+@ARTICLE{bibexample,
+   author = {L[eslie] A. Aamport},
+   title = {The Gnats and Gnus Document Preparation System},
+   journal = {\mbox{G-Animal's} Journal},
+   year = 1986,
+}
+\end{filecontents*}
+
+\begin{document}
+\tableofcontents
+\section{foo}\label{foosec}
+\subsection{bar}\label{barsubsec}
+All \TeX{} users, rally around \url{http://tex.stackexchange.com}!
+As shown in~\cite{bibexample}, blah blah blah in \cref{barsubsec}.
+\bibliography{mybib}
+\end{document}
